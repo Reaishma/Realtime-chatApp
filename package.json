@@ -1,0 +1,21 @@
+{
+  "name": "react-nodejs-vercel-app",
+  "version": "1.0.0",
+  "description": "Simple React frontend with Node.js backend for Vercel deployment",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "build": "echo 'Build complete - static files ready'",
+    "dev": "node api/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["react", "nodejs", "vercel", "fullstack", "express"],
+  "author": "Your Name",
+  "license": "MIT"
+}
