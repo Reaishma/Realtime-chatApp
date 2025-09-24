@@ -1,6 +1,35 @@
 # Real-time Chat Application
 
-A real-time chat application built with FastAPI and WebSockets, featuring a modern dark theme with red accent colors.
+## Overview
+
+This is a real-time chat application built with FastAPI and WebSockets. The application enables multiple users to join a chat room, send messages in real-time, and see when other users join or leave the chat. It features a clean web interface with responsive design and handles WebSocket connections for instant messaging functionality.
+
+## System Architecture
+
+### Backend Architecture
+- **Framework**: FastAPI with WebSocket support for real-time bidirectional communication
+- **Connection Management**: Custom ConnectionManager class handles WebSocket lifecycle, user sessions, and message broadcasting
+- **User Management**: In-memory user tracking with UUID generation for unique user identification
+- **Message Broadcasting**: Asynchronous message distribution to all connected clients
+- **Event Handling**: System messages for user join/leave events with timestamps
+
+### Frontend Architecture
+- **Pure JavaScript**: Vanilla JS implementation without frameworks for simplicity
+- **WebSocket Client**: Native WebSocket API for real-time communication
+- **Responsive Design**: CSS Grid/Flexbox layout with gradient styling
+- **Connection Resilience**: Automatic reconnection logic with attempt limiting
+- **Dynamic Protocol**: Automatic WebSocket protocol selection (ws/wss) based on HTTPS context
+
+
+### Deployment Configuration
+- **Platform**: Vercel serverless deployment with Python runtime
+- **Routing**: Single route configuration directing all traffic to main.py
+- **Build Process**: Vercel Python builder for serverless function creation
+
+### Data Flow
+- **Session Storage**: In-memory user connections and metadata (no persistent database)
+- **Message Format**: JSON-based message structure with type, content, user info, and timestamps
+- **State Management**: Client-side state for username, connection status, and UI transitions
 
 ## Features
 
@@ -141,6 +170,22 @@ The application is configured for Vercel deployment with `vercel.json`. However,
 - **Message Statistics**: Real-time statistics and monitoring
 - **Connection Resilience**: Robust error handling and cleanup
 
+
+## External Dependencies
+
+### Core Dependencies
+- **FastAPI (0.117.1)**: Web framework providing WebSocket support and HTTP routing
+- **WebSockets (15.0.1)**: Low-level WebSocket protocol implementation
+- **Uvicorn (0.36.0)**: ASGI server for running the FastAPI application
+
+### Deployment Platform
+- **Vercel**: Serverless hosting platform with automatic HTTPS and global CDN
+- **Python 3.9 Runtime**: Serverless function execution environment
+
+### Browser APIs
+- **WebSocket API**: Native browser WebSocket implementation for real-time communication
+- **DOM API**: Standard web APIs for UI manipulation and event handling
+
 ### Development Notes
 - Uses in-memory storage for user sessions (no database required)
 - Messages are not persisted beyond current session
@@ -175,4 +220,4 @@ The application is configured for Vercel deployment with `vercel.json`. However,
 
 ## License
 
-This project is provided as-is for educational and development purposes.
+This project is provided as-is for educational and development purposes and comes under MIT LICENCE 
